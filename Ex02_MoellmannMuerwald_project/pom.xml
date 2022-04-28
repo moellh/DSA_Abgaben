@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.unistuttgart.dsass2022.ex02</groupId>
-	<artifactId>Ex02_LastnamesOfMembers_project</artifactId>
+	<artifactId>Ex02_MoellmannMuerwald_project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Ex02_LastnamesOfMembers_project</name>
+	<name>Ex02_MoellmannMuerwald_project</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
