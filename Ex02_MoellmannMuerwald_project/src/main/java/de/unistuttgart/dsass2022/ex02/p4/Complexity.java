@@ -1,13 +1,21 @@
 package de.unistuttgart.dsass2022.ex02.p4;
  
 
+/**
+ * Contains 3 Number-Returning Operations based on a positive value n.
+ * There is a worse and better version for each operation.
+ * 
+ * @author Alina Mürwald (2838377), Henrik Möllmann (3537334)
+ */
 public class Complexity {
 	
 	
 	/**
+	 * Returns (2*n + 2) using a Loop.
+	 * It is worse than {@link #isDoneBetter1(int)}
 	 * 
 	 * @param n positive integer n
-	 * @return some new number based on n
+	 * @return 2*n + 1
 	 */
 	public static int couldBeBetter1(final int n) {
 		int result = 0;
@@ -19,6 +27,7 @@ public class Complexity {
 	
 	
 	/**
+	 * Returns some number but is worse than {@link #isDoneBetter2(int)}.
 	 * 
 	 * @param n positive integer n
 	 * @return some new number based on n
@@ -37,9 +46,11 @@ public class Complexity {
 	}
 	
 	/**
+	 * Returns the value of the Fibonacci-Algorithm with Paramter n.
+	 * It is worse than {@link #isDoneBetter3(int)}
 	 * 
 	 * @param n positive integer
-	 * @return some new number based on n
+	 * @return fibonacci-number based on n
 	 */
 	public static int couldBeBetter3(final int n) {
 		if (n < 0) throw new IllegalArgumentException("n has to be positive!");
@@ -49,9 +60,11 @@ public class Complexity {
 	
 	
 	/**
+	 * Returns (2*n + 2) using by Multiplying and Adding.
+	 * It is also better than {@link #couldBeBetter1(int)}.
 	 * 
 	 * @param n positive integer
-	 * @return same number as couldBeBetter1, but faster
+	 * @return same number as {@link #couldBeBetter1(int)}, but faster
 	 */
 	public static int isDoneBetter1(final int n) {
 		return 2*n + 2;
@@ -59,9 +72,10 @@ public class Complexity {
 	
 	
 	/**
+	 * Returns some number but is better than {@link #couldBeBetter2(int)}
 	 * 
 	 * @param n positive integer
-	 * @return same number as couldBeBetter1, but faster
+	 * @return same number as {@link #couldBeBetter2(int)}, but faster
 	 */
 	public static int isDoneBetter2(final int n) {
 		int temp = 1;
@@ -75,9 +89,11 @@ public class Complexity {
 
 	
 	/**
+	 * Returns the value of the Fibonacci-Algorithm with Paramter n.
+	 * It is also better than {@link #couldBeBetter3(int)}
 	 * 
 	 * @param n positive integer
-	 * @return same number as couldBeBetter1, but faster
+	 * @return fibonacci-number based on n
 	 */
 	public static int isDoneBetter3(final int n) {
 		if (n < 0) {
