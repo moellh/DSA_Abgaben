@@ -78,11 +78,9 @@ public class Complexity {
 	 * @return same number as {@link #couldBeBetter2(int)}, but faster
 	 */
 	public static int isDoneBetter2(final int n) {
-		int temp = 1;
 		int result = 1;
 		for (int i = 1; i <= n; i++) {
-			result = temp*i;
-			temp = result;
+			result *= i;
 		}
 		return result;
 	}
