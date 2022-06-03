@@ -40,13 +40,13 @@ public class ShortestPath implements IShortestPath {
 	public void dijkstra(final IWeightedGraph graph, final long startnode) {
 		allNodesWithInfiniteDistance(graph);
 		graph.getNode(startnode).setDistance(0);
-		final PriorityQueue<INode> queue = priorityQueueOfAllNodes(graph);
+		final PriorityQueue<Node> queue = priorityQueueOfAllNodes(graph);
 		while(!queue.isEmpty()) {
 			final INode nodeWithMinimalDistance = queue.remove();
 			final Iterator<IEdge> outgoingEdges = graph.outgoingEdges(nodeWithMinimalDistance.getID());
 			while(outgoingEdges.hasNext()) {
 				final IEdge outgoingEdge = outgoingEdges.next();
-				final INode destination = graph.getNode(outgoingEdge.getDestination());
+				final Node destination = graph.getNode(outgoingEdge.getDestination());
 				final double newDistance = nodeWithMinimalDistance.getDistance() + outgoingEdge.getWeight();
 				if(queue.contains(destination) && newDistance < destination.getDistance()) {
 					setDistanceInPriorityQueue(newDistance, destination, queue);
@@ -77,8 +77,8 @@ public class ShortestPath implements IShortestPath {
 	 * @return PriorityQueue with nodes of {@link #graph}
 	 * @see {@link Node#compareTo(Node o)}
 	 */
-	private PriorityQueue<INode> priorityQueueOfAllNodes(final IWeightedGraph graph) {
-		final PriorityQueue<INode> queue = new PriorityQueue<>();
+	private PriorityQueue<Node> priorityQueueOfAllNodes(final IWeightedGraph graph) {
+		final PriorityQueue<Node> queue = new PriorityQueue<>();
 		final Iterator<Node> nodes = graph.nodeIterator();
 		while(nodes.hasNext()) {
 			final Node node = nodes.next();
@@ -95,7 +95,7 @@ public class ShortestPath implements IShortestPath {
 	 * @param node
 	 * @param queue
 	 */
-	private void setDistanceInPriorityQueue(final double newDistance, final INode node, final PriorityQueue<INode> queue) {
+	private void setDistanceInPriorityQueue(final double newDistance, final Node node, final PriorityQueue<Node> queue) {
 		if(!queue.contains(node)) {
 			throw new IllegalArgumentException();
 		}
@@ -154,5 +154,4 @@ public class ShortestPath implements IShortestPath {
 		}
 		throw new IllegalStateException();
 	}
-
 }
